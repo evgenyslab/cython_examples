@@ -1,5 +1,7 @@
+# import libcpp plug for string:
 from libcpp.string cimport string
 
+# mirror class header declarations here
 cdef extern from "myClass.h" namespace "mySpace":
     cdef cppclass myClass:
         myClass() except +
@@ -16,8 +18,12 @@ cdef extern from "myClass.h" namespace "mySpace":
         void setString(string);
         void setBytes(char*, int);
 
+# define python class that will be called thorugh import myClass.PymyClass:
 cdef class PymyClass:
+  # reference c-class
     cdef myClass *thisptr
+    # create python interfaces for each C++ function member.
+    # CAN add python processing here if need be!
     def __cinit__(self):
         self.thisptr = new myClass()
     def __dealloc__(self):
