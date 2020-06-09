@@ -1,9 +1,12 @@
 #include <iostream>
 
+// Define Namespace (if needed)
 namespace mySpace {
+  // define class:
   class myClass {
-  public:
 
+  // public member function declaration
+  public:
       myClass();
       ~myClass();
       int getInt();
