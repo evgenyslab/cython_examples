@@ -51,6 +51,33 @@ installing wrapped package.
   python setup.py install  
   ```
 
+## Example Usage
+
+Once the C++ has been compiled and the cython wrapper generated and installed
+(into virtual environment), the following usage example is provided in `ipython`
+console:
+
+```python
+import myClass
+
+obj = myClass.PymyClass()
+# test getters:
+obj.getInt()
+obj.getFloat()
+obj.getChar()
+obj.getString()
+
+# test setters:
+obj.setInt(12398)
+obj.setFloat(10.312)
+obj.setDouble(842.129381084170238102489712)
+obj.setChar('c')
+obj.setString("test string")  # <- WILL NOT WORK
+b = bytes("test string with bytes", "UTF-8")  # UTF-8 or ascii encoding will print out correctly on C++ side; otherwise it will just receive a byte array, which is useful for data such as images.
+obj.setBytes(b, len(b))
+
+```
+
 ## Some Issues to resolve
 
 - string is passed as an array of bytes to python
