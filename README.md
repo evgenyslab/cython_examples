@@ -80,5 +80,15 @@ obj.setBytes(b, len(b))
 
 ## Some Issues to resolve
 
+*IMPORTANT*
+The current CMakeLists.txt file creates a Static library object `.a`, this works fine with MacOS compiler, however
+when moving to linux, gcc compiler has trouble linking to a static library, therefore the CmakeLists.txt should
+change the desigation of the library from `STATIC` to `SHARED` when non-MacOs host is detected. 
+
+Next problem is that the compiled shared library in Linux is locaated in the build folder `build/*.so`, however,
+when trying to load the class object in python, python says it cannot open the library object.
+[this](https://stackoverflow.com/questions/1099981/why-cant-python-find-shared-objects-that-are-in-directories-in-sys-path) 
+suggests that the LD_LIBRARY_PATH should include the `.so` location - need to verify this and check.
+
 - string is passed as an array of bytes to python
 - not sure if setString works expected bytes but got string..
