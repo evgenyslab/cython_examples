@@ -90,5 +90,14 @@ when trying to load the class object in python, python says it cannot open the l
 [this](https://stackoverflow.com/questions/1099981/why-cant-python-find-shared-objects-that-are-in-directories-in-sys-path) 
 suggests that the LD_LIBRARY_PATH should include the `.so` location - need to verify this and check.
 
+SOLUTION:
+- updated CMakeLists.txt for Linux to create shared library object (`.so`) in build folder.
+- Need to check in linux `LD_LIBRARY_PATH` environment variable - it might be empty.
+- Need to add, temporarily the build dir to the `LD_LIBRARY_PATH` variable for python to correctly
+link the libraries:
+```bash
+export LD_LIBRARY_PATH='$LD_LIBRARY_PATH:path/to/build/folder'
+```
+
 - string is passed as an array of bytes to python
 - not sure if setString works expected bytes but got string..
