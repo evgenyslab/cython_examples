@@ -1,3 +1,32 @@
+# Notes
+
+How to structure cython repo to use both clion & pycharm separatel?
+
+How to get cython to build binaries for an environment and make it useable?
+
+i.e. cython package developed concurrently with a python application?
+
+How to setup c++ to run on docker container at the same time as the pycharm?
+
+- using `bin` in cpp side as build directory - need to configure clion for it...
+
+- I'm not sure if its possible to avoid running setup.py on cythonized code, however I know C++ compiled modules can
+be used by python without cython; that might be better
+
+- it seems inescapible to run python setup.py install - but how to make this automated for docker system for any N
+sets of python wrapped c++ libraries? How to make sure they are testable? How to develop them?
+
+Proposal:
+
+1. run docker container
+2. develop C++ library in `sources` with Clion in ssh docker
+3. Write python interface `.pyx` for sources in host application
+4. use script to upload project to container, build & install python package 
+    - currently testing ssh'ed install... need to fix LD_library_path...
+    
+NOTE: when using CLion with ssh - it creates a different project folder! Might not be able to run both C++ and python
+concurrently in CLion and Pycharm! Develop C++ FIRST, Then close and use Pycharm w/ shh...
+
 # Cython Example
 
 This project presents an example of creating a cython (python) wrapper for a
