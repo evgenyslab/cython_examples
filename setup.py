@@ -7,7 +7,7 @@ extensions = [
     name="cppInterfacePackage",
     sources=["interfacepackage/*.pyx"], # cython sources
     include_dirs=["sources/include"],
-    libraries=["cppinterface"], # this is the c++ library name from CMakeLists.txt
+    libraries=["cppInterface"], # this is the c++ library name from CMakeLists.txt
     library_dirs=["sources/bin"],
     extra_compile_args=['-std=c++11'],
     language="c++"
