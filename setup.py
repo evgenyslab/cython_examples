@@ -36,7 +36,7 @@ extensions = [
 
 setup(
     author="Sherlock",
-    name="pyCppInterface",  # name of package in 'pip freeze'
+    name="cppInterfacePackage",  # name of package in 'pip freeze'
     # package_dir = {} # leave this empty to install to dist-packages
     ext_modules=cythonize(extensions)
 )
