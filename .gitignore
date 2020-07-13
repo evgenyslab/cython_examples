@@ -1,4 +1,6 @@
 .venv/*
+*.idea/*
+*/.idea/*
 dist/*
 build/*
 Makefile

@@ -1,14 +1,14 @@
 #include <iostream>
 
 // Define Namespace (if needed)
-namespace mySpace {
+namespace cppInterfaceSpace {
   // define class:
-  class myClass {
+  class cppInterface {
 
   // public member function declaration
   public:
-      myClass();
-      ~myClass();
+      cppInterface();
+      ~cppInterface();
       int getInt();
       float getFloat();
       double getDouble();
