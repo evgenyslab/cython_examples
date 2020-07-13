@@ -2,6 +2,8 @@ from setuptools import setup
 from distutils.core import setup, Extension
 from Cython.Build import cythonize
 
+# TODO: add scripting to build c++
+
 extensions = [
   Extension(
     name="cppInterfacePackage",
