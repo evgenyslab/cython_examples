@@ -1,5 +1,10 @@
 # Notes
 
+TODO:
+- [ ] Python unit testing
+- [ ] setup.py force c++ build
+- [ ] pycharm force setup.py build on console or application run...
+
 How to structure cython repo to use both clion & pycharm separatel?
 
 How to get cython to build binaries for an environment and make it useable?

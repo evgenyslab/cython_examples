@@ -3,6 +3,22 @@ from distutils.core import setup, Extension
 from Cython.Build import cythonize
 
 # TODO: add scripting to build c++
+"""
+1. check if sources/bin directory exists
+2. check if sources/bin is populated with *.a or *.so libs
+3. check if $LD_LIBRARY_PATH (in container) includes the path to sources/bin
+
+fullInstall -> (conditions?)
+  # get local path -> PACKAGE_PATH
+  mkdir sources/bin
+  cd sources/bin
+  cmake ..
+  make
+  export $LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$PACKAGE_PATH"
+  
+reinstall -> (bin exists but empty/ no .a or .so files
+  
+"""
 
 extensions = [
   Extension(
@@ -19,8 +35,8 @@ extensions = [
 
 
 setup(
-    name = "pyCppInterface", # name of package in 'pip freeze'
-    # package_dir = {"":"build",
-    #                "":"python"}, # site_packages, having "" in this list
-    ext_modules = cythonize(extensions)
+    author="Sherlock",
+    name="pyCppInterface",  # name of package in 'pip freeze'
+    # package_dir = {} # leave this empty to install to dist-packages
+    ext_modules=cythonize(extensions)
 )
