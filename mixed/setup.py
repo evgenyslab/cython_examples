@@ -22,11 +22,11 @@ reinstall -> (bin exists but empty/ no .a or .so files
 
 extensions = [
   Extension(
-    name="cppInterfacePackage",
-    sources=["interfacepackage/*.pyx"], # cython sources
-    include_dirs=["sources/include"],
-    libraries=["cppInterface"], # this is the c++ library name from CMakeLists.txt
-    library_dirs=["sources/bin"],
+    name="cppinterfacepackage",
+    sources=["interfacepackage/*.pyx", "src/cppInterface.cpp"], # cython sources
+    include_dirs=["include"],
+    # libraries=["cppInterface"], # this is the c++ library name from CMakeLists.txt
+    # library_dirs=["sources/build"],
     extra_compile_args=['-std=c++11'],
     language="c++"
     )
@@ -36,7 +36,7 @@ extensions = [
 
 setup(
     author="Sherlock",
-    name="cppInterfacePackage",  # name of package in 'pip freeze'
+    name="cppinterfacepackage",  # name of package in 'pip freeze'
     # package_dir = {} # leave this empty to install to dist-packages
     ext_modules=cythonize(extensions)
 )

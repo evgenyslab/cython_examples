@@ -1,5 +1,8 @@
 # Notes
 
+it seems like its possible to run `python3 setup install` without building any sources; I think its automated 
+by cython
+
 TODO:
 - [ ] Python unit testing
 - [ ] setup.py force c++ build
@@ -31,6 +34,13 @@ Proposal:
     -> note that exporting the LD_LIBRARY_PATH will only work in the connected docker instance...
     -> maybe in pycharm starting script need to do export of LD library path to get it to see correctly..
     
+To run remote testing, could use pycharm to upload with ssh, then ssh into docker and run:
+
+`python3 setup.py build_ext --inplace`
+
+to build the project inplace, then run `pythonr3 tests/testSuite.py` but this has import error :()
+
+
 NOTE: when using CLion with ssh - it creates a different project folder! Might not be able to run both C++ and python
 concurrently in CLion and Pycharm! Develop C++ FIRST, Then close and use Pycharm w/ shh...
 
