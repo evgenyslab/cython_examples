@@ -1,5 +1,88 @@
 # Notes
 
+
+Use Cases:
+A. C++ packages that need to used in C++ and Python Application
+B. C++ packages that will be exclusively used by Python Applications
+
+Project Structure:
+
+```bash
+# MIXED STRUCTURE
+
+.
+├── docs
+│   └── Doxyfile
+├── include
+│   ├── header1.h
+│   └── header2.h
+├── pythonpackagename
+│   ├── __init__.py
+│   └── pythonpackagename.pyx
+├── src
+│   ├── sourceFile1.cpp
+│   └── sourceFile2.cpp
+├── tests
+│   ├── CMakeLists.txt
+│   ├── __init__.py
+│   ├── genericTestSuite.cpp
+│   └── test_interfacepackage.py
+├── CMakeLists.txt
+├── LICENSE
+├── requirements.txt
+├── setup.py
+
+```
+
+Workflows:
+
+1. Develop C++ Library with concurrent tests, until required functionality is met by library.
+    - Open Clion Project with SSH into running docker container
+    - Develop in Clion with remote docker
+    - Run tests in docker container
+    - Verify operation
+    
+2. Write one .pyx cython wrapper for C++ library in `python` folder
+
+3. Write and place python tests in `tests` folder side by side with c++ tests
+
+(at this point, in CLion - all folders should sycn to docker container)
+
+4. SSH into docker container using `docker exec -it container_name zsh`
+
+5. (docker) navigate to project folder
+
+6. (docker) run `python3 setup.py install` to install the package into the container's system python
+
+7. (docker) Run python tests `python3 tests/testSuite.py`, verify tests pass (repeat #2-7 as needed)
+
+Option A:
+
+8. Create `Install` targets in `CMakeLists.txt` for C++ Library to place compiled binaries in correct system
+folder and move headers into system `include`. [This creates install instructions for target systems]
+
+(***TODO***: Bundle python install with CMake Install Instructions)
+
+9. Run standard C++ library install procedure on target system:
+
+```bash
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+```
+
+Option B: 
+
+8. On target system, clone/copy repository (i.e. docker), and run `python3 setup.py install`
+    
+    - this will be either in docker container (through ssh), or on a target system
+    - Alternatively can run `pip3 install .` for automation.
+
+
+# OLD    
+
 it seems like its possible to run `python3 setup install` without building any sources; I think its automated 
 by cython
 
