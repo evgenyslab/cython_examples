@@ -1,4 +1,30 @@
-# Notes
+# README
+
+2021-01-27 - Generating Sphinx side by side with Doxygen
+
+- run sphinx-quickstart in docs folder, use separate build/source option
+- configure the conf.py file in docs/sources
+- add rst files to docs/sources
+- in doxygen set output dir to doxygen + generate HTML
+- See MakeFile and conf.py to see how doxygen is auto generated, and copied into 
+gh-pages
+
+TODO: add notes on generating doxy for cython specific project...
+
+Note: if using gh-pages (github pages) use a side-by-side repository
+structure to keep track of the branch to push pages, make sure to set
+the `BUILDDIR` in the `MakeFile` to the correct relative path, otherwise, 
+if generating the docs in a nested location, set the build file to 
+the required location. Please note, the `Makefile` has directive to build
+the doxygen structure as well
+
+TODO: might want to add the makefile directive to the labmanual sauces page
+
+In the index rst / or wherever, add relative link to doxygen/index.html to access it
+
+TODO: how to add readme.md as main page in both sphinx/doxygen?
+
+## More info
 
 
 Use Cases:
@@ -81,7 +107,7 @@ Option B:
     - Alternatively can run `pip3 install .` for automation.
 
 
-# OLD    
+## OLD    
 
 it seems like its possible to run `python3 setup install` without building any sources; I think its automated 
 by cython
@@ -127,7 +153,7 @@ to build the project inplace, then run `pythonr3 tests/testSuite.py` but this ha
 NOTE: when using CLion with ssh - it creates a different project folder! Might not be able to run both C++ and python
 concurrently in CLion and Pycharm! Develop C++ FIRST, Then close and use Pycharm w/ shh...
 
-# Cython Example
+## Cython Example
 
 This project presents an example of creating a cython (python) wrapper for a
 c++ class/library.
