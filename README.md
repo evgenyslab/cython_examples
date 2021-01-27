@@ -1,5 +1,7 @@
 # README
 
+[Check out the docs!](https://evgenyslab.github.io/cython_examples/)
+
 2021-01-27 - Generating Sphinx side by side with Doxygen
 
 - run sphinx-quickstart in docs folder, use separate build/source option
