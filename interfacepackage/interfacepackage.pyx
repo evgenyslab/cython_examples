@@ -1,3 +1,6 @@
+"""! Interface Package PYX Definition
+
+"""
 # import libcpp plug for string:
 from libcpp.string cimport string
 
@@ -20,6 +23,9 @@ cdef extern from "cppInterface.h" namespace "cppInterfaceSpace":
 
 # define python class that will be called thorugh import myClass.PymyClass:
 cdef class pyCppInterface:
+    """! pyCppInterface
+
+    """
   # reference c-class
     cdef cppInterface *thisptr
     # create python interfaces for each C++ function member.
@@ -51,3 +57,13 @@ cdef class pyCppInterface:
         self.thisptr.setString(s)
     def setBytes(self, b, l):
         self.thisptr.setBytes(b,l)
+
+class myclass:
+    """! myclass definition...
+
+
+    """
+    def fun():
+        """! so much fun
+        """
+        pass
