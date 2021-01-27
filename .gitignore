@@ -6,3 +6,6 @@ build/*
 Makefile
 python/*.cpp
 python/*.egg*
+docs/latex/*
+docs/html/*
+.DS_Store
