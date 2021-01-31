@@ -6,7 +6,7 @@
 SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = source
-BUILDDIR      = ../../
+BUILDDIR      = .
 
 # Put it first so that "make" without argument is like "make help".
 help:
@@ -24,7 +24,8 @@ help:
 	mkdir $(BUILDDIR)/html/doxygen
 	echo "copying doxygen"
 	cp -R doxygen/html/* $(BUILDDIR)/html/doxygen
-
+	touch $(BUILDDIR)/.nojekyll
+	touch $(BUILDDIR)/html/.nojekyll
 
 # update the git repo
 push:
