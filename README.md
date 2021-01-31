@@ -1,5 +1,23 @@
 # README
 
+
+2021-01-30 TODO List
+
+- [ ] update docs for :code:`.nojekyll` for gh pages issues.
+- [ ] provide info on how to locally compile pyx file, and use with ipython
+- [ ] provide info on how to compile/build pyx file for vitual envrionment
+- [ ] provide info on how to compile c++ lib (for header/.so or .a) usage
+on linux/mac, and how it links to pyx installation
+- [ ] provide info on how to resolve circular install, namely, if requiring
+python buildings only, use :code:`setup.py` to build and compile c++ then 
+cython and create python package locally / or for virtual machine, 
+versus compiling and installing c++ library & headers into system
+for use with other c++ programs separately from python; so, to ramble on,
+Identify the different use cases and provide info on each
+- [ ] test docs generation in docs folder and linking github pages
+directly to docs folder without needing to make another branch for documentation
+- [ ] consider baseline :code:`docs` folder with base configuration required
+
 [Check out the docs!](https://evgenyslab.github.io/cython_examples/)
 
 2021-01-27 - Generating Sphinx side by side with Doxygen
