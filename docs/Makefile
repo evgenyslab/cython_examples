@@ -27,6 +27,4 @@ help:
 	touch $(BUILDDIR)/.nojekyll
 	touch $(BUILDDIR)/html/.nojekyll
 
-# update the git repo
-push:
-	cd $(BUILDDIR)/html; git add . ; git commit -m "rebuilt docs"; git push origin gh-pages
+
