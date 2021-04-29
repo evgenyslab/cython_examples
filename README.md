@@ -1,6 +1,11 @@
 # README
 
 
+2021-04-18 TODO List:
+
+- [ ] look into auto compilation with __init__ python & local c++ building/
+checking if build is out of date
+
 2021-01-30 TODO List
 
 - [ ] update docs for :code:`.nojekyll` for gh pages issues.
